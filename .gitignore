@@ -1,0 +1,20 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!README
+# etc...
+!cmus
+!fish
+!foot
+!google-chrome
+!neofetch
+!nvim
+!qutebrowser
+!renode
+!river
+!sway
+!wallpapers
+
+
