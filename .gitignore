@@ -4,17 +4,31 @@
 # But not these files...
 !.gitignore
 !README
+!mimeapps.list
+# google-chrome
 # etc...
+!.gitmodules
 !cmus
 !fish
+!fish
 !foot
-# google-chrome
 !neofetch
 !nvim
 !qutebrowser
 !renode
 !river
 !sway
-!wallpapers
+!wallpapers  
 
+
+!cmus /**
+!fish/**
+!foot/**
+!neofetch/**
+# !nvim/**
+!renode/**
+!river/**
+!sway/**
+# !wallpapers/**
+!qutebrowser/**
 
