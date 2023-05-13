@@ -67,7 +67,7 @@ input "*" {
    xkb_layout us
    xkb_options caps:swapescape  
     repeat_delay 200
-    repeat_rate 40
+    repeat_rate 35
 }
 input * {
     #left_handed enabled
@@ -120,7 +120,7 @@ input * {
     # default_border none
     default_border pixel 6
     default_floating_border none
-    font pango:monospace 10
+    font pango:monospace 3
     titlebar_padding 1
     titlebar_border_thickness 0
 
@@ -220,7 +220,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $mod+o exec alacritty -e alsamixer
+bindsym $mod+o exec foot -L alsamixer
 
 bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy &&  wl-paste > ~/.config/lastscreen.png
 # bindsym $mod+i if set -q UNO; set -e UNO; else set $UNO REC; end
@@ -230,23 +230,37 @@ bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy &&  wl-paste > ~/.config/l
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
+
 bar {
+    font pango:DejaVu Sans Mono, FontAwesome 9
     position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-	# status_command while if [$UNO == "1"] echo "yes" else echo "false" end; do sleep 1; done
-	status_command while ls ~/.config/sway/; do sleep 1; done
-
-    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
+    status_command i3status-rs 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
     }
 }
-set $UNO 1
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+# 	# status_command while if [$UNO == "1"] echo "yes" else echo "false" end; do sleep 1; done
+# 	# status_command while ls ~/.config/sway/; do sleep 1; done
+#
+#     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
 exec /usr/bin/python ~/git/change_bg/script.py tip 
 include /etc/sway/config.d/*

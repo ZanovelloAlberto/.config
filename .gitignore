@@ -19,8 +19,9 @@
 !river
 !sway
 !wallpapers  
+!i3status-rust
 
-
+!i3status-rust/**
 !cmus /**
 !fish/**
 !foot/**
