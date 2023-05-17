@@ -7,21 +7,13 @@ if status is-interactive
 end
 
 if status --is-login
-
-	
-	sudo pacman -Sy --noconfirm git 
-	$SHELL -c cd ~/.config/yay/ && makepkg -si --noconfirm
-	# cd ~/.config/yay/ && makepkg -si --noconfirm 
-
-	$SHELL -c yay -Sy 
-	
-	
-
-	# wl-clipboard
-
-
-
 	sway
+	
+	# sudo pacman -Sy --noconfirm git 
+	# $SHELL -c cd ~/.config/yay/ && makepkg -si --noconfirm
+	# cd ~/.config/yay/ && makepkg -si --noconfirm 
+	# $SHELL -c yay -Sy 
+
 
 end 
 

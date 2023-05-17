@@ -1,6 +1,6 @@
 
 [Default Applications]
 inode/directory=nvim.desktop
-image/jpeg=feh.desktop
-image/png=feh.desktop
-image/gif=sxiv.desktop
+image/jpeg=mpv.desktop
+image/png=mpv.desktop
+image/gif=mpv.desktop

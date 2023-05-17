@@ -25,16 +25,17 @@ set $menu exec $(tofi-run)
 exec mako
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/alberto/.config/wallpapers/fireguard.png fill
+# output * bg /home/alberto/.config/wallpapers/fireguard.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-set $opacity 0.9
+set $opacity 0.92
 #for_window [class=".*"] opacity $opacity
-for_window [app_id="foot"] opacity $opacity
+# for_window [app_id="foot"] opacity $opacity
+for_window [tiling] opacity $opacity
 
 ### Idle configuration
 #
@@ -121,8 +122,11 @@ input * {
     default_border pixel 6
     default_floating_border none
     font pango:monospace 3
+	# hide_edge_borders smart
     titlebar_padding 1
     titlebar_border_thickness 0
+	gaps inner 0
+	gaps outer 0
 
     bindsym $mod+Shift+$left move left
     # bindsym $mod+Shift+$down move down
@@ -196,7 +200,19 @@ input * {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
+
+exec mpvpaper '*' ~/.config/wallpapers/fireguard.png -o "input-ipc-server=/tmp/mpv-socket --loop"
+# --volume 0"
+# mpvpaper
+bindsym $mod+Ctrl+left exec echo 'seek -4' | socat - /tmp/mpv-socket
+bindsym $mod+Ctrl+right exec echo 'seek 4' | socat - /tmp/mpv-socket
+bindsym $mod+Ctrl+Space exec echo 'cycle pause' | socat - /tmp/mpv-socket
+bindsym $mod+Ctrl+up exec echo 'add volume +2' | socat - /tmp/mpv-socket
+bindsym $mod+Ctrl+down exec echo 'add volume -2' | socat - /tmp/mpv-socket
+bindsym $mod+Ctrl+q exec fish -c "mpvc loadfile ~/.config/wallpapers/fireguard.png"
+# bindsym $mod+Ctrl+q exec fish -c "mpvc loadfile ~/.config/wallpapers/fireguard.png"
+bindsym $mod+Ctrl+l exec echo "loadfile '$(wl-paste)'" | socat - /tmp/mpv-socket
 # Resizing containers:
 #
 mode "resize" {
@@ -262,5 +278,5 @@ bar {
 #     }
 # }
 
-exec /usr/bin/python ~/git/change_bg/script.py tip 
+# exec /usr/bin/python ~/git/change_bg/script.py tip 
 include /etc/sway/config.d/*
