@@ -10,6 +10,7 @@ list = [
 'sway',
 'foot',
 'grim',
+'tofi',
 # 'renode',
 'slurp',
         ]
