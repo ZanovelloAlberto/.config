@@ -4,7 +4,7 @@ AUR pakages installed:
 - foot 
 - sway 
 - river 
-- nushell 
+- fish 
 - nvim
 - google-chrome-stable
 - pavucontrol
@@ -13,9 +13,3 @@ AUR pakages installed:
 
 - slurp 
 - wl-clipboard
-
-
-
-# AVR
-- avr-gcc 
-- avrdude
